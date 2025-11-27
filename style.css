@@ -1,0 +1,141 @@
+:root {
+    --bg-color-light: #e6eee0; /* Cor de fundo principal */
+    --header-bg-color: #c9e4c9; /* Cor do cabeçalho */
+    --green-dark: #38761d; /* Verde escuro para o texto */
+    --marker-color: #000; /* Cor do marcador */
+    --filter-bg-color: #ffffff; /* Fundo dos botões de filtro */
+    --green-active: #8fbc8f; /* Novo: Cor de fundo para botão ativo (verde claro) */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 900px; 
+    height: 550px; 
+    background-color: var(--bg-color-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- Cabeçalho --- */
+.header {
+    background-color: var(--header-bg-color);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: relative;
+}
+
+.back-button {
+    background-color: var(--bg-color-light);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg); 
+    color: var(--green-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 24px;
+    color: var(--green-dark);
+    margin: 0;
+    font-weight: bold;
+}
+
+/* --- Conteúdo Principal (Mapa e Filtros) --- */
+.content {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.map-area {
+    flex-grow: 1;
+    position: relative;
+    margin-right: 20px;
+}
+
+/*  NOVA DEFINIÇÃO PARA A DIV DO MAPA REAL  */
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    /* Certifica que o mapa preenche toda a área do mapa simulado */
+}
+
+/* --- Marcadores (Código antigo removido, pois o Google Maps cria os pins) --- */
+
+/* --- Área de Filtro --- */
+.filter-area {
+    width: 200px; 
+    background-color: var(--bg-color-light); 
+    padding-left: 10px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--green-dark);
+}
+
+.dropdown-icon {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+}
+
+.filter-button {
+    background-color: var(--filter-bg-color);
+    color: var(--green-dark);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-bottom: 15px;
+    width: 150px; 
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s;
+}
+
+.filter-button:hover {
+    background-color: #f0f0f0;
+}
+
+/*  NOVO: Estilo para o botão ATIVO (selecionado)  */
+.filter-button.ativo {
+    background-color: var(--green-active); /* Cor de destaque para o botão ativo */
+    color: #fff; /* Texto branco para contraste */
+    border-color: var(--green-dark);
+}
