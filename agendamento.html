@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendamento</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="step1">
+      <h1 class="title">Agendar Atendimento</h1>
+      <p class="subtitle">Selecione uma data</p>
+      <div class="input-group">
+        <label for="date">Escolha uma data:</label>
+        <input type="date" id="date" />
+      </div>
+      <div id="timeSection" style="display: none;">
+        <p class="subtitle">Escolha um horário</p>
+        <div class="time-grid" id="timeGrid">
+          <button class="time-btn">09:00</button>
+          <button class="time-btn">10:00</button>
+          <button class="time-btn">11:00</button>
+          <button class="time-btn">14:00</button>
+          <button class="time-btn">15:00</button>
+          <button class="time-btn">16:00</button>
+        </div>
+      </div>
+      <button class="btn" id="nextBtn" disabled>Confirmar</button>
+    </div>
+
+    <div class="card" id="step2" style="display: none;">
+      <h1 class="title">Confirmação</h1>
+      <div class="confirmation-details" id="confirmationDetails"></div>
+      <button class="btn" id="confirmBtn">Confirmar Agendamento</button>
+      <button class="btn-secondary" id="backBtn">Voltar</button>
+    </div>
+
+    <div class="card" id="step3" style="display: none;">
+      <div class="success-icon">✔️</div>
+      <p class="success-message">Agendamento realizado com sucesso!</p>
+      <button class="btn" id="newBtn">Novo Agendamento</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/agendamento.ts"></script>
+</body>
+</html>

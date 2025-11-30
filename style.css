@@ -1,0 +1,248 @@
+/* Fundo verde suave e layout centralizado */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #d9f0e0; /* verde claro elegante */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container central */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Cartão branco suave */
+.card {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Título e subtítulo */
+.title {
+  font-size: 2rem;
+  color: #2e7d32;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Grupos de input */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.3rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #2e7d32;
+  margin-bottom: 0.3rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1.5px solid #b8dfc5;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 6px rgba(67, 160, 71, 0.3);
+  outline: none;
+}
+
+/* Botão principal */
+.btn {
+  background-color: #43a047;
+  color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #388e3c;
+  transform: scale(1.02);
+}
+
+/* Links e redirecionamento */
+.redirect {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.redirect a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.redirect a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para inputs e selects */
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #c1d8b0; /* mesma cor das bordas dos inputs */
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Foco (quando o usuário clica no campo) */
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #6aa84f; /* cor que você usa nos inputs */
+}
+
+/* ============================== */
+/*  TELA DE AGENDAMENTO           */
+/* ============================== */
+
+/* Controle de telas */
+.screen {
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+
+/* Calendário (etapa 1) */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.date-btn {
+  background-color: #e8f5e9;
+  border: 1.5px solid #b8dfc5;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #2e7d32;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.date-btn:hover,
+.date-btn.selected {
+  background-color: #43a047;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Horários (etapa 2) */
+.time-grid {
+  display: none; /* inicialmente oculto */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.time-grid.visible {
+  display: grid;
+  opacity: 1;
+}
+
+.time-btn {
+  background-color: #e8f5e9;
+  border: 1.5px solid #b8dfc5;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #2e7d32;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.time-btn:hover,
+.time-btn.selected {
+  background-color: #43a047;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Confirmação (etapa 3) */
+.confirmation-details {
+  background-color: #f1f8e9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  border: 1px solid #cde5be;
+}
+
+.confirmation-details p {
+  margin: 0.3rem 0;
+  color: #2e7d32;
+}
+
+/* Mensagem de sucesso (etapa 4) */
+.success-icon {
+  font-size: 3rem;
+  color: #43a047;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  font-size: 1.1rem;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Botão voltar (menor e secundário) */
+.btn-secondary {
+  background-color: #a5d6a7;
+  color: #2e7d32;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #81c784;
+  transform: scale(1.02);
+}
