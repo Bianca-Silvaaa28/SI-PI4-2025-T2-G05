@@ -4,7 +4,7 @@
     --green-dark: #38761d; /* Verde escuro para o texto */
     --marker-color: #000; /* Cor do marcador */
     --filter-bg-color: #ffffff; /* Fundo dos botões de filtro */
-    --green-active: #8fbc8f; /* Novo: Cor de fundo para botão ativo (verde claro) */
+    --green-active: #8fbc8f; /* Cor de fundo para botão ativo (verde claro) */
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     overflow: hidden;
 }
 
-/* --- Cabeçalho --- */
+/* Cabeçalho */
 .header {
     background-color: var(--header-bg-color);
     padding: 15px 20px;
@@ -63,7 +63,7 @@ body {
     font-weight: bold;
 }
 
-/* --- Conteúdo Principal (Mapa e Filtros) --- */
+/* Conteúdo Principal (Mapa e Filtros) */
 .content {
     display: flex;
     flex-grow: 1;
@@ -76,7 +76,7 @@ body {
     margin-right: 20px;
 }
 
-/*  NOVA DEFINIÇÃO PARA A DIV DO MAPA REAL  */
+/* DEFINIÇÃO PARA A DIV DO MAPA  */
 #map {
     width: 100%;
     height: 100%;
@@ -84,9 +84,8 @@ body {
     /* Certifica que o mapa preenche toda a área do mapa simulado */
 }
 
-/* --- Marcadores (Código antigo removido, pois o Google Maps cria os pins) --- */
 
-/* --- Área de Filtro --- */
+/* Área de Filtro */
 .filter-area {
     width: 200px; 
     background-color: var(--bg-color-light); 
@@ -133,7 +132,7 @@ body {
     background-color: #f0f0f0;
 }
 
-/*  NOVO: Estilo para o botão ATIVO (selecionado)  */
+/* Estilo para o botão ATIVO (selecionado)  */
 .filter-button.ativo {
     background-color: var(--green-active); /* Cor de destaque para o botão ativo */
     color: #fff; /* Texto branco para contraste */

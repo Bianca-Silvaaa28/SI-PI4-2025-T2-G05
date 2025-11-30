@@ -1,4 +1,3 @@
-// js/mock-data.js
 
 const COOPERATIVAS_MOCKADAS = [
     {
@@ -49,5 +48,4 @@ const COOPERATIVAS_MOCKADAS = [
         vidro: true,
         papel: false
     }
-    // DICA: Adicione mais pontos com diferentes combinações para testar melhor!
 ];
