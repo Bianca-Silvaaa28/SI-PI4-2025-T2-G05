@@ -1,0 +1,163 @@
+.auth-page,
+.auth-page * {
+  box-sizing: border-box;
+}
+
+.auth-page {
+  font-family: "Poppins", Arial, sans-serif;
+  min-height: 100vh;            /* garante altura mínima da tela */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9f0e0;    /* fundo suave */
+  padding: 24px;                /* espaço nas laterais em telas pequenas */
+}
+
+/* Container central com largura controlada */
+.auth-page .auth-wrapper {
+  width: 100%;
+  max-width: 420px;            
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 28px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.18s ease;
+}
+
+@media (hover: hover) {
+  .auth-page .auth-wrapper:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Cabeçalho */
+.auth-page .title {
+  margin: 0;
+  font-size: 22px;
+  color: #1f7a2c;
+  text-align: center;
+  font-weight: 600;
+}
+
+.auth-page .subtitle {
+  margin: 6px 0 20px;
+  text-align: center;
+  color: #4a4a4a;
+  font-size: 14px;
+}
+
+/* Grupo de inputs */
+.auth-page .input-group {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.auth-page .input-group label {
+  display: block;
+  font-size: 13px;
+  color: #247031;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Inputs e select: MEDIDAS CONSISTENTES */
+.auth-page input[type="text"],
+.auth-page input[type="email"],
+.auth-page input[type="password"],
+.auth-page select,
+.auth-page textarea {
+  width: 100%;
+  padding: 12px 14px;         /* padding consistente */
+  border-radius: 10px;
+  border: 1px solid #cfe8d3;  /* borda suave */
+  font-size: 14px;
+  background: #fbfffb;
+  outline: none;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+/* Focus state claro */
+.auth-page input:focus,
+.auth-page select:focus,
+.auth-page textarea:focus {
+  border-color: #5fb15f;
+  box-shadow: 0 6px 16px rgba(95,177,95,0.06);
+}
+
+/* Mensagens de erro/ajuda (mantém espaço para evitar "pulo") */
+.auth-page .field-help,
+.auth-page small.error {
+  display: block;
+  font-size: 12px;
+  min-height: 16px;
+  margin-top: 6px;
+  color: #c0392b;
+}
+
+/* Botão primário com medidas estáveis */
+.auth-page .btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #43a047;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background .16s, transform .08s;
+}
+
+.auth-page .btn:active { transform: translateY(1px); }
+.auth-page .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Link de redirecionamento centralizado */
+.auth-page .redirect {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+}
+
+.auth-page .redirect a {
+  color: #1b7a2b;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+/* Pequenas melhorias responsivas */
+@media (max-width: 420px) {
+  .auth-page .auth-wrapper {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .auth-page .title { font-size: 20px; }
+  .auth-page .subtitle { font-size: 13px; }
+}
+.guia-wrapper {
+  max-width: 720px !important;
+}
+
+/* Inputs e select: MEDIDAS CONSISTENTES */
+.auth-page input[type="text"],
+.auth-page input[type="email"],
+.auth-page input[type="password"],
+.auth-page input[type="date"],
+.auth-page input[type="time"],
+.auth-page input[type="number"],
+
+.auth-page select,
+.auth-page textarea {
+  width: 100%;
+  padding: 12px 14px;         
+  border-radius: 10px;
+  border: 1px solid #cfe8d3;
+  font-size: 14px;
+  background: #fbfffb;
+  outline: none;
+  transition: box-shadow .15s, border-color .15s;
+}
