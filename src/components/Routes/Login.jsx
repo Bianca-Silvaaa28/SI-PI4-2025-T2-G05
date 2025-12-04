@@ -53,7 +53,7 @@ export default function Login() {
       alert("Login realizado com sucesso!");
       navigate("/home");
     } catch (error) {
-      alert("Erro no login: " + error.message);
+      alert("Login não efetuado, revise os dados");
     }
   };
 

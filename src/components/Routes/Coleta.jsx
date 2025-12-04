@@ -123,7 +123,7 @@ const Coleta = () => {
             >
               <option value="">Selecione...</option>
               <option value="Recicláveis">Recicláveis</option>
-              <option value="Eletrônicos">Eletrônicos</option>
+              <option value="Eletrônico">Eletrônico</option>
               <option value="Orgânicos">Orgânicos</option>
               <option value="Vidro">Vidro</option>
               <option value="Metal">Metal</option>
