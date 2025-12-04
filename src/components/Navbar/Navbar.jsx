@@ -25,11 +25,7 @@ const Navbar = () => {
           <li>
             <Link to="/guiadareciclagem" className="hover:text-green-200">Guia de Reciclagem</Link>
           </li>
-          <li>
-            <Link to="/aprendizagem" className="hover:text-green-200">
-              Aprendizagem
-            </Link>
-          </li>
+         
         </ul>
       </div>
     </nav>
