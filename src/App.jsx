@@ -1,3 +1,5 @@
+//autor(a): Nayla e Miquéias
+
 import { BrowserRouter, Routes, Route } from "react-router-dom"; // importa os componentes essenciais para configurar o roteamento (rotas) no react
 import Navbar from "./components/Navbar/Navbar"; // importa o componente de barra de navegação
 import Home from "./components/Routes/Home"; // importa o componente da página inicial
