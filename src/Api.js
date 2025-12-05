@@ -1,3 +1,5 @@
+//autor(a): Nayla e Miquéias
+
 // src/api.js ou src/firebase.js
 import { initializeApp } from "firebase/app"; // importa a função principal para inicializar o firebase app
 import { getAnalytics } from "firebase/analytics"; // importa a função para obter o serviço analytics (se estiver sendo usado)
