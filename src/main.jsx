@@ -1,3 +1,5 @@
+//autor(a): Nayla e Miquéias
+
 import React from "react"; // importa a biblioteca principal do react
 import ReactDOM from "react-dom/client"; // importa os métodos específicos para interagir com o dom (document object model) no navegador
 import App from "./App.jsx"; // importa o componente principal da aplicação (geralmente contendo todas as rotas e layout)
