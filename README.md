@@ -1,18 +1,106 @@
-# React + Vite
+# ♻️ EcoLink: Plataforma de Coleta e Reciclagem Inteligente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição do Projeto
 
-Currently, two official plugins are available:
+O **EcoLink** é uma plataforma web desenvolvida para otimizar o processo de gestão e agendamento de coleta de resíduos recicláveis. O sistema conecta **empresas geradoras de resíduos** a **cooperativas de reciclagem**, oferecendo um **Mapa Interativo** para localização de pontos de coleta e um **Dashboard** com indicadores.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto adota uma arquitetura de **Três Camadas** (Front-End, Servidor Java e Banco de Dados), onde o Servidor Java atua como *middleware* de segurança, processando a lógica de negócios e o acesso filtrado ao banco de dados.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ Stack Tecnológica
 
-Note: This will impact Vite dev & build performances.
+| Camada | Tecnologia | Versão | Justificativa de Uso |
+| :--- | :--- | :--- | :--- |
+| **Front-End** | **React** | v19.2.0 | Criação de interface de usuário baseada em componentes. |
+| **Build Tool** | **Vite** | Latest | Ambiente de desenvolvimento rápido. |
+| **Estilização** | **Tailwind CSS** | Latest | Framework de CSS para design responsivo. |
+| **Mapa** | **Leaflet** | v1.9.4 | Biblioteca eficiente para visualização de mapas interativos. |
+| **Back-End** | **Java** | v17+ | Linguagem robusta para lógica de negócios. |
+| **Framework BE** | **Spring Boot** | v3.3.1 | Criação rápida e eficiente da API RESTful. |
+| **Banco de Dados** | **Firebase Firestore** | NoSQL | Persistência de dados escalável. |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 👥 Equipe de Desenvolvimento
+
+* Beatriz Marinello de Almeida – 24000134
+* Bianca Vitória da Silva  – 24788820
+* Miquéias Berne da Silva – 24014654
+* Nayla izis Mendes Ferreira – 25007828 
+* Vitor Hugo Cruz Costa  – 24014950
+
+
+---
+
+## 📋 Guia de Implantação e Testes (Ambiente Local)
+
+Para implantar o projeto em um ambiente de testes, você deve inicializar e configurar os dois projetos (Back-End e Front-End) separadamente.
+
+### 1. Pré-Requisitos
+
+Certifique-se de ter instalado:
+* **Git**
+* **Node.js** (v18+) e **npm**
+* **Java Development Kit (JDK)** v17 ou superior (configurado com a variável `JAVA_HOME`)
+* **Apache Maven** (O projeto está configurado para usar Maven via `pom.xml`).
+* **Acesso ao Firebase Console** (Projeto ID: `formulario-dc19e`).
+
+### 2. Configuração de Credenciais (Passo Crítico)
+
+O Servidor Java precisa de uma chave privada do Firebase para autenticar e acessar o Firestore.
+
+1.  **Obtenha a Chave:** No Console do Firebase (Configurações > Contas de Serviço), baixe o arquivo **Chave de Conta de Serviço** (`Service Account Key`) no formato JSON.
+2.  **Salve:** Renomeie o arquivo para **`ecolink-admin-key.json`**.
+3.  **Posicione:** Coloque este arquivo dentro da pasta de recursos do Back-End:
+    ```
+    ./ecolink-backend/src/main/resources/
+    ```
+    ⚠️ **ATENÇÃO:** Este arquivo é privado e está no `.gitignore`.
+
+### 3. Inicialização do Back-End (Servidor Java)
+
+O servidor Java expõe a API REST em `http://localhost:8080`.
+
+1.  **Navegue para o diretório do Back-End:**
+    ```bash
+    cd ecolink-backend
+    ```
+2.  **Instale as dependências (Maven):**
+    ```bash
+    mvn clean install
+    ```
+3.  **Execute o Servidor:**
+    ```bash
+    mvn spring-boot:run
+    ```
+    *Resultado Esperado:* O servidor deve iniciar e exibir a mensagem `Tomcat started on port 8080 (http)`.
+
+### 4. Inicialização do Front-End (React)
+
+O Front-End rodará na porta padrão do Vite (geralmente `5173`).
+
+1.  **Navegue para a pasta raiz do Front-End:**
+    ```bash
+    cd ..
+    # Agora você está na pasta SI-PI4-2025-T2-G05
+    ```
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+3.  **Execute a Aplicação:**
+    ```bash
+    npm run dev
+    ```
+    *Resultado Esperado:* A aplicação deve abrir no navegador (ex: `http://localhost:5173/`).
+
+### 5. Cenários de Teste e Validação
+
+| Cenário de Teste | Ação | Resultado Esperado |
+| :--- | :--- | :--- |
+| **API Pública** | Acesse `http://localhost:8080/api/cooperativas` no navegador. | Deve retornar **JSON 200 OK** com os dados das cooperativas. |
+| **Interface/Mapa** | Visite a página inicial (`/`). | O **Mapa dos Pontos de Coleta** deve carregar os marcadores, confirmando que o Front-End consome a API Java. |
+| **Segurança por Usuário** | 1. Faça login. 2. Visite a Home. | A lista "Coletas Agendadas" deve exibir **APENAS** as coletas registradas com o seu login (filtragem segura feita pelo Servidor Java usando o JWT). |
+
+Posicione: Coloque este arquivo dentro da pasta:
