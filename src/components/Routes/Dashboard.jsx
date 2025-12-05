@@ -1,3 +1,5 @@
+//autor(a): Nayla
+
 import React, { useEffect, useState } from "react"; // importa react e os hooks usestate e useeffect
 import { collection, onSnapshot } from "firebase/firestore"; // importa funções do firestore: collection (referência à coleção) e onsnapshot (listener em tempo real)
 import { db } from "../../api.js"; // importa a instância de conexão do firestore (db)
