@@ -1,3 +1,5 @@
+//autor(a): Beatriz e Bianca
+
 import { useEffect, useState } from "react"; // importa hooks do react (useeffect e usestate)
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"; // importa componentes específicos do react-leaflet
 import "leaflet/dist/leaflet.css"; // importa o css básico do leaflet para o estilo do mapa
