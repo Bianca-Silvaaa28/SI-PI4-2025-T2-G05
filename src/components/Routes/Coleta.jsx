@@ -1,3 +1,5 @@
+//autor(a): Nayla e Miquéias
+
 import React, { useState } from "react"; // importa react e o hook usestate para gerenciar estados
 import { addDoc, collection } from "firebase/firestore"; // importa funções do firestore para adicionar um documento e referenciar uma coleção
 import { db } from "../../api"; // importa a instância de conexão do firestore (db) configurada em api.js
