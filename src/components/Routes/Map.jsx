@@ -34,9 +34,7 @@ export default function MapPage() {
     "Plástico",
   ];
 
-  // ------------------------------
   // 1. BUSCAR COOPERATIVAS DO FIREBASE
-  // ------------------------------
   useEffect(() => {
     const fetchCooperativas = async () => {
       try {
@@ -54,9 +52,7 @@ export default function MapPage() {
     fetchCooperativas();
   }, []);
 
-  // ------------------------------
   // 2. CRIAR MAPA E PEGAR LOCALIZAÇÃO DO USUÁRIO
-  // ------------------------------
   useEffect(() => {
     const mapInstance = L.map("map", {
       center: [-22.90556, -47.06083], // fallback Campinas
@@ -95,9 +91,8 @@ export default function MapPage() {
     return () => mapInstance.remove();
   }, []);
 
-  // ------------------------------
+
   // 3. ATUALIZAR MARCADORES AO MUDAR FILTRO
-  // ------------------------------
   useEffect(() => {
     if (!map || !markersLayer) return;
 
@@ -170,9 +165,7 @@ marker.bindPopup(`
       });
   }, [selectedFilter, cooperativas, map, markersLayer]);
 
-  // ------------------------------
   // 4. COMPONENTE JSX
-  // ------------------------------
   return (
     <div style={{ padding: "20px" }}>
       <h2>Mapa de Cooperativas</h2>

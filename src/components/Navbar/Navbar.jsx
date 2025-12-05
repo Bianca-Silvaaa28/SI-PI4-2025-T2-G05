@@ -8,8 +8,8 @@ const Navbar = () => {
 
         {/* Logo / Home */}
         <Link
-          to="/"
-          className="text-2xl font-bold tracking-wide hover:text-green-200 transition"
+          to="/home" 
+          className="text-2xl font-bold tracking-wide hover:text-green-200 transition"
         >
           EcoLink
         </Link>
@@ -24,11 +24,6 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/guiadareciclagem" className="hover:text-green-200">Guia de Reciclagem</Link>
-          </li>
-          <li>
-            <Link to="/aprendizagem" className="hover:text-green-200">
-              Aprendizagem
-            </Link>
           </li>
         </ul>
       </div>
