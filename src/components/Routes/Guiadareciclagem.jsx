@@ -1,3 +1,5 @@
+//autor(a): Nayla
+
 import React from "react"; // importa a biblioteca principal do react (embora não use hooks neste arquivo)
 
 // define o componente funcional guiadareciclagem
