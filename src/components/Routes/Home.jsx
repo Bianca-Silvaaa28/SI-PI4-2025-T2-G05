@@ -1,106 +1,120 @@
-import React, { useEffect, useState } from "react";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
-import { db } from "../../api";
-import Map from "./Map";
+import React, { useEffect, useState } from "react"; // importa react e os hooks useeffect e usestate
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore"; // importa funções do firestore para consultas e listener em tempo real
+import { db } from "../../api"; // importa a instância de conexão do firestore (db)
+import Map from "./Map"; // importa o componente map (mapa)
 
-
-
+// define o componente funcional home
 const Home = () => {
-  const [dailyTip, setDailyTip] = useState("");
-  const [coletas, setColetas] = useState([]);
+    // estado para armazenar a dica ambiental aleatória do dia
+    const [dailyTip, setDailyTip] = useState("");
+    // estado para armazenar a lista de coletas agendadas
+    const [coletas, setColetas] = useState([]);
 
-  const tips = [
-    "Feche a torneira ao escovar os dentes para economizar água.",
-    "Desligue aparelhos da tomada para evitar consumo em standby.",
-    "Aproveite a luz natural ao máximo.",
-    "Separe o lixo reciclável corretamente todos os dias.",
-    "Evite usar descartáveis quando possível.",
-    "Plante uma árvore ou cuide de uma planta em casa.",
-    "Reduza o tempo de banho para economizar água.",
-    "Use transporte coletivo ou bicicleta quando possível.",
-    "Reutilize embalagens antes de descartar.",
-    "Doe roupas que você não usa mais.",
-  ];
+    // array de strings contendo as dicas ambientais
+    const tips = [
+        "feche a torneira ao escovar os dentes para economizar água.",
+        "desligue aparelhos da tomada para evitar consumo em standby.",
+        "aproveite a luz natural ao máximo.",
+        "separe o lixo reciclável corretamente todos os dias.",
+        "evite usar descartáveis quando possível.",
+        "plante uma árvore ou cuide de uma planta em casa.",
+        "reduza o tempo de banho para economizar água.",
+        "use transporte coletivo ou bicicleta quando possível.",
+        "reutilize embalagens antes de descartar.",
+        "doe roupas que você não usa mais.",
+    ];
 
-  // Dica aleatória
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * tips.length);
-    setDailyTip(tips[randomIndex]);
-  }, []);
+    // useeffect para selecionar e exibir uma dica aleatória na montagem
+    useEffect(() => {
+        // gera um índice aleatório baseado no tamanho do array de dicas
+        const randomIndex = Math.floor(Math.random() * tips.length);
+        // define o estado da dica do dia com a dica selecionada
+        setDailyTip(tips[randomIndex]);
+    }, []); // array de dependências vazio: executa apenas uma vez ao montar
 
-  // Carregar coletas do Firebase
-  useEffect(() => {
-    const q = query(collection(db, "coleta"), orderBy("data", "asc"));
+    // useeffect para carregar coletas do firebase em tempo real
+    useEffect(() => {
+        // cria uma query para a coleção "coleta" e ordena os resultados pelo campo "data" em ordem crescente
+        const q = query(collection(db, "coleta"), orderBy("data", "asc"));
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const lista = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setColetas(lista);
-    });
+        // configura o listener em tempo real (onsnapshot)
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            // mapeia os documentos retornados, adicionando o id e os dados de cada documento
+            const lista = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            // atualiza o estado com a lista de coletas
+            setColetas(lista);
+        });
 
-    return () => unsubscribe();
-  }, []);
+        // retorna a função de limpeza: cancela o listener (unsubscribe) quando o componente for desmontado
+        return () => unsubscribe();
+    }, []); // array de dependências vazio: executa apenas uma vez ao montar
 
-  return (
-    <div className="p-6">
-      {/* Título */}
-      <h1 className="text-3xl font-bold mb-4 text-green-600">ECO LINK</h1>
+    // ********** renderização do componente **********
+    return (
+        <div className="p-6"> {/* container principal */}
+            {/* título principal */}
+            <h1 className="text-3xl font-bold mb-4 text-green-600">eco link</h1>
 
-      {/* Dica do dia */}
-      <div className="bg-green-100 border-l-4 border-green-600 p-4 rounded mb-6">
-        <h2 className="text-xl font-semibold">🌱 Dica do Dia</h2>
-        <p className="text-gray-700">{dailyTip}</p>
-      </div>
+            {/* dica do dia */}
+            <div className="bg-green-100 border-l-4 border-green-600 p-4 rounded mb-6"> {/* card de dica estilizado */}
+                <h2 className="text-xl font-semibold">🌱 dica do dia</h2>
+                <p className="text-gray-700">{dailyTip}</p> {/* exibe a dica aleatória */}
+            </div>
 
-      {/* Lista de coletas */}
-      <h2 className="text-2xl font-semibold mb-3">📦 Coletas Agendadas</h2>
+            {/* lista de coletas */}
+            <h2 className="text-2xl font-semibold mb-3">📦 coletas agendadas</h2>
 
-      {coletas.length === 0 ? (
-        <p className="text-gray-500">Nenhuma coleta agendada...</p>
-      ) : (
-        <ul className="space-y-3">
-          {coletas.map((item) => (
-            <li
-              key={item.id}
-              className="p-4 bg-white rounded shadow border border-gray-200"
-            >
-              <p><strong>Nome:</strong> {item.nome}</p>
-              <p><strong>Data:</strong> {item.data}</p>
+            {/* renderização condicional da lista de coletas */}
+            {coletas.length === 0 ? (
+                <p className="text-gray-500">nenhuma coleta agendada...</p> // mensagem se não houver coletas
+            ) : (
+                <ul className="space-y-3"> {/* lista de coletas */}
+                    {/* mapeia e renderiza cada item de coleta */}
+                    {coletas.map((item) => (
+                        <li
+                            key={item.id} // chave única para o react
+                            className="p-4 bg-white rounded shadow border border-gray-200" // estilização do item da lista
+                        >
+                            <p><strong>nome:</strong> {item.nome}</p>
+                            <p><strong>data:</strong> {item.data}</p>
 
-              {item.hora && (
-                <p><strong>Hora:</strong> {item.hora}</p>
-              )}
+                            {/* renderização condicional dos campos, se existirem */}
+                            {item.hora && (
+                                <p><strong>hora:</strong> {item.hora}</p>
+                            )}
 
-              {item.material && (
-                <p><strong>Material:</strong> {item.material}</p>
-              )}
+                            {item.material && (
+                                <p><strong>material:</strong> {item.material}</p>
+                            )}
 
-              {item.cep && (
-                <p><strong>CEP:</strong> {item.cep}</p>
-              )}
+                            {item.cep && (
+                                <p><strong>cep:</strong> {item.cep}</p>
+                            )}
 
-              {item.endereco && (
-                <p><strong>Endereço:</strong> {item.endereco}</p>
-              )}
+                            {item.endereco && (
+                                <p><strong>endereço:</strong> {item.endereco}</p>
+                            )}
 
-              {item.email && (
-                <p><strong>Email:</strong> {item.email}</p>
-              )}
+                            {item.email && (
+                                <p><strong>email:</strong> {item.email}</p>
+                            )}
 
-              {item.telefone && (
-                <p><strong>Telefone:</strong> {item.telefone}</p>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
+                            {item.telefone && (
+                                <p><strong>telefone:</strong> {item.telefone}</p>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
-      {/* MAPA COM COLETAS */}
-      <Map coletas={coletas} />
-    </div>
-  );
+            {/* mapa com coletas */}
+            {/* renderiza o componente map e passa a lista de coletas como propriedade (prop) */}
+            <Map coletas={coletas} />
+        </div>
+    );
 };
 
-export default Home;
+export default Home; // exporta o componente

@@ -1,5 +1,13 @@
+/* importa o arquivo css principal do leaflet. */
 @import "leaflet/dist/leaflet.css";
 
+/* as diretivas @tailwind são usadas para injetar as camadas (layers) do tailwind css. */
+
+/* @tailwind base injeta os estilos base do tailwind. */
 @tailwind base;
+
+/* @tailwind components injeta as classes de componentes do tailwind. */
 @tailwind components;
+
+/* @tailwind utilities injeta todas as classes utilitárias do tailwind. */
 @tailwind utilities;

@@ -1,7 +1,16 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    // files: lista explícita de arquivos typescript a serem incluídos no projeto.
+    "files": [],
+
+    // references: lista de projetos typescript que este projeto depende.
+    "references": [
+        { 
+            // referência ao arquivo de configuração principal da aplicação (para o código do front-end).
+            "path": "./tsconfig.app.json" 
+        },
+        { 
+            // referência ao arquivo de configuração para o ambiente node (usado para build/configurações do vite).
+            "path": "./tsconfig.node.json" 
+        }
+    ]
 }
