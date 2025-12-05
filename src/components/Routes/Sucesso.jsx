@@ -1,3 +1,5 @@
+//autor(a): Nayla
+
 // src/components/routes/guiadareciclagem.jsx
 import React from "react"; // importa a biblioteca principal do react
 
