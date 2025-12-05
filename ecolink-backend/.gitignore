@@ -1,0 +1,38 @@
+<<<<<<< HEAD
+# Ignora arquivos de build do Maven e do Java
+/target/
+*.class
+*.jar
+
+# Arquivos de IDE (IntelliJ, VS Code, etc.)
+.idea/
+.vscode/
+*.iml
+
+/src/main/resources/ecolink-admin-key.json
+=======
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+>>>>>>> 13e52e1d21bad68d52f3227ec0d1774a35355445
