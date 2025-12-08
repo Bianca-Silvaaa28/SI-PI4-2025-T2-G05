@@ -51,7 +51,7 @@ function App() {
                     {/* Rotas Públicas */}
                     <Route path="/login" element={<Login />} />
                     <Route path="/cadastro" element={<Cadastro />} />
-                    <Route path="/guia" element={<Guiadareciclagem />} />
+                    <Route path="/guiadareciclagem" element={<Guiadareciclagem />} />
                     <Route path="/sucesso" element={<Sucesso />} />
 
                     {/* Rotas Protegidas (Exigem Login) */}

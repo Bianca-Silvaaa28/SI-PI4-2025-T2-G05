@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// 🛑 NOVO: Importe useNavigate do react-router-dom
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"; 
 import { useNavigate } from "react-router-dom"; 
 import "leaflet/dist/leaflet.css"; 
@@ -16,9 +15,9 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 
-// ** Componente de Geolocalização (Centra o mapa) **
+//  Componente de Geolocalização (Centraliza o mapa) 
 function UserLocation() {
-    // ... (lógica useMap e useEffect para geolocalização) ...
+    //  (lógica useMap e useEffect para geolocalização) 
     const map = useMap(); 
     
     useEffect(() => {
@@ -48,7 +47,7 @@ function UserLocation() {
 
 // Define o componente Map - Recebe dados filtrados via props
 export default function Map({ coletas }) {
-    // 🛑 INICIALIZA O HOOK DE NAVEGAÇÃO
+    //  INICIALIZA O HOOK DE NAVEGAÇÃO
     const navigate = useNavigate();
     
     const [locations, setLocations] = useState([]);
@@ -59,7 +58,7 @@ export default function Map({ coletas }) {
         setLocations(validLocations);
     }, [coletas]); 
 
-    // ********** renderização do componente **********
+    //  renderização do componente 
     return (
         <div className="mt-6"> 
             
@@ -85,7 +84,7 @@ export default function Map({ coletas }) {
                                 ♻ material: {loc.material || "não informado"}
                                 <br />
                                 
-                                {/* 🛑 BOTÃO DE AÇÃO: Chama useNavigate e passa os dados da cooperativa */}
+                                {/* Chama useNavigate e passa os dados da cooperativa */}
                                 <button 
                                     onClick={() => navigate("/coleta", { state: { cooperativa: loc } })}
                                     className="w-full py-2 px-4 mt-2 text-white font-semibold rounded-md hover:bg-green-700 transition"
