@@ -105,6 +105,3 @@ O Front-End rodará na porta padrão do Vite (geralmente `5173`).
 | **API Pública** | Acesse `http://localhost:8080/api/cooperativas` no navegador. | Deve retornar **JSON 200 OK** com os dados das cooperativas. |
 | **Interface/Mapa** | Visite a página inicial (`/`). | O **Mapa dos Pontos de Coleta** deve carregar os marcadores, confirmando que o Front-End consome a API Java. |
 | **Segurança por Usuário** | 1. Faça login. 2. Visite a Home. | A lista "Coletas Agendadas" deve exibir **APENAS** as coletas registradas com o seu login (filtragem segura feita pelo Servidor Java usando o JWT). |
-
-Posicione: Coloque este arquivo dentro da pasta:
->>>>>>> 5ef5cae2446d4e0664c1c55daf55767f725457d1
